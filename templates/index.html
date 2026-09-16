@@ -1,1 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Fantasy Compare</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brandmark">FC</div>
+      <div><div class="eyebrow">WEEKLY DECISION ENGINE</div><h1>Fantasy Compare</h1></div>
+    </header>
+    <p class="intro">Choose two players. We combine current usage, matchup, injuries, game context, weather and fresh reporting to estimate who is more likely to score more fantasy points.</p>
 
+    <section class="compare-card">
+      <div class="player-input-block">
+        <label for="playerA">PLAYER 1</label>
+        <div class="search-wrap">
+          <input id="playerA" autocomplete="off" placeholder="Start typing a player…" value="George Kittle" />
+          <div id="suggestA" class="suggestions hidden"></div>
+        </div>
+      </div>
+      <div class="versus">VS</div>
+      <div class="player-input-block">
+        <label for="playerB">PLAYER 2</label>
+        <div class="search-wrap">
+          <input id="playerB" autocomplete="off" placeholder="Start typing a player…" value="T.J. Hockenson" />
+          <div id="suggestB" class="suggestions hidden"></div>
+        </div>
+      </div>
+      <div class="scoring-row">
+        <span>Scoring</span>
+        <div class="segmented" role="group" aria-label="Scoring format">
+          <button type="button" data-score="standard">Standard</button>
+          <button type="button" data-score="half-ppr" class="active">Half-PPR</button>
+          <button type="button" data-score="ppr">PPR</button>
+        </div>
+      </div>
+      <button id="compareBtn" class="primary">Compare players</button>
+      <div id="formMessage" class="form-message" aria-live="polite"></div>
+    </section>
+
+    <section id="loading" class="loading hidden"><div class="spinner"></div><div><strong>Building the matchup</strong><span>Pulling fresh stats and context…</span></div></section>
+    <section id="results" class="hidden"></section>
+    <footer><span>Data refreshes when you compare.</span><span>V1 · Free-data prototype</span></footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
