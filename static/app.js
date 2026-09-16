@@ -2,6 +2,7 @@
   const $ = (s) => document.querySelector(s);
   const a = $('#playerA'), b = $('#playerB'), suggestA = $('#suggestA'), suggestB = $('#suggestB');
   const btn = $('#compareBtn'), results = $('#results'), loading = $('#loading'), msg = $('#formMessage');
+  const playerAImage = $("#playerAImage"), playerBImage = $("#playerBImage");
   let scoring = 'half-ppr';
 
   document.querySelectorAll('[data-score]').forEach(x => x.addEventListener('click', () => {
