@@ -24,7 +24,18 @@
       (data.players || []).slice(0, 8).forEach(p => {
         const el = document.createElement('button'); el.type = 'button'; el.className = 'suggestion';
         el.innerHTML = `<span>${escapeHtml(p.name)}</span><small>${escapeHtml(p.position)} · ${escapeHtml(p.team || '—')}</small>`;
-        el.addEventListener('click', () => { input.value = p.name; box.classList.add('hidden'); });
+        el.addEventListener('click', () => {
+  input.value = p.name;
+  box.classList.add('hidden');
+
+  const img = input.id === 'playerA' ? playerAImage : playerBImage;
+  const playerId = p.player_id || p.id;
+
+  if (playerId) {
+    img.src = `https://sleepercdn.com/content/nfl/players/${playerId}.jpg`;
+    img.classList.remove('hidden');
+  }
+});
         box.appendChild(el);
       });
       box.classList.toggle('hidden', !box.children.length);
